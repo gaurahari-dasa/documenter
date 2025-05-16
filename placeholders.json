@@ -1,12 +1,14 @@
 {
-  "Screen": "Discount Codes",
-  "subject": "discount code",
+  "Screen": "Roles",
+  "subject": "role",
   "indef-article": "a",
-  "subjects": "discount codes",
-  "add button": "Add",
+  "subjects": "roles",
+  "add button": "add",
   "save button": "Submit",
-  "close button": "Close",
-  "Errors in red": null,
-  "default_page_length": null,
-  "Menu": "Contacts"
+  "close button": "close",
+  "errors_in_red": false,
+  "default_page_length": "10",
+  "sort_available": false,
+  "quick_activate_deactivate": false,
+  "Menu": "Users"
 }
