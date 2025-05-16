@@ -5,16 +5,15 @@ import json
 
 def replace_text_in_docx(doc: Document, placeholders: dict):
     for para in doc.paragraphs:
-        for key, value in placeholders.items():
-            if not value:
-                # Construct regex pattern dynamically based on the tag
-                pattern = re.compile(rf"\{{{re.escape(key)}: .*? :{re.escape(key)}\}}")
-                para.text = re.sub(pattern, "", para.text)
-            else:
-                pattern = re.compile(
-                    rf"\{{{re.escape(key)}: (.*?) :{re.escape(key)}\}}"
-                )
-                para.text = re.sub(pattern, r"\1", para.text)
+        def sub(m: re.Match):
+            try:
+                return '' if not placeholders[m.group(1)] else m.group(2)
+            except Exception as ex:
+                print("No matching conditional text specifier in placeholders:", ex)
+                return m.group(0)
+            
+        pattern = re.compile(r"\{([a-zA-Z0-9 _\-]+): (.*?) :\1\}")
+        para.text = re.sub(pattern, sub, para.text)
 
 
 def fill_placeholders(template_path, output_path):
@@ -47,8 +46,8 @@ with open("placeholders.json", "r") as f:
 
 
 # Paths to the template and output files
-# template_path = input("Path to the template: ").strip("\"'")
-template_path = "documentation_template.docx"
+template_path = input("Path to the template: ").strip("\"'")
+# template_path = "documentation_template.docx"
 output_path = "filled_documentation.docx"
 
 # Fill the placeholders in the template and save the result
