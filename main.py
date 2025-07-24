@@ -12,7 +12,7 @@ def replace_text_in_docx(doc: Document, placeholders: dict):
                 print("No matching conditional text specifier in placeholders:", ex)
                 return m.group(0)
             
-        pattern = re.compile(r"\{([a-zA-Z0-9 _\-]+): (.*?) :\1\}")
+        pattern = re.compile(r"\{([a-zA-Z0-9 _\-]+):(.*?):\1\}")
         para.text = re.sub(pattern, sub, para.text)
 
 

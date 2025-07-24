@@ -1,14 +1,14 @@
 {
-  "Screen": "Roles",
-  "subject": "role",
-  "indef-article": "a",
-  "subjects": "roles",
+  "Screen": "Inspiring Videos",
+  "subject": "inspiring video",
+  "indef-article": "an",
+  "subjects": "inspiring videos",
   "add button": "add",
   "save button": "Submit",
   "close button": "close",
   "errors_in_red": false,
-  "default_page_length": "10",
-  "sort_available": false,
+  "default_page_length": null,
+  "sort_available": true,
   "quick_activate_deactivate": false,
-  "Menu": "Users"
+  "Menu": "Inspiring Videos"
 }
